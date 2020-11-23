@@ -1,0 +1,106 @@
+/* STYLES FOR LAYOUT */
+
+/* Navbar styles */
+
+.navbar {
+    border-bottom: 2px solid hsl(291, 64%, 32%) !important;
+    margin: 0;
+}
+
+.container {
+    max-width: 1920px !important;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.dropdown-toggle {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.dropdown-divider {
+    border-top: 1px solid #9c27b0;
+}
+
+/* Footer styles */
+
+.footer-bar {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.footer-bar a {
+    color: hsl(291, 64%, 62%);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.493);
+    margin: 0;
+}
+
+.footer-bar p {
+    margin: 10px 0;
+}
+
+
+/* Alert styles */
+
+.alert {
+    position: absolute;
+    top: 72px;
+    width: 100%;
+    padding: 0.6rem 1.25rem;
+}
+
+.message-title {
+    font-size: medium !important;
+}
+
+.message-text {
+    color: #ffffff;
+    font-size: medium;
+}
+
+/* Modal styles */
+
+.modal-dialog {
+    max-width: 407px;
+    margin-top: 104px;
+}
+
+.modal-header .card-header {
+    margin-top: -25px;
+    margin-bottom: 0;
+    max-width: 407px;
+    width: 100%;
+}
+
+.modal-header .card-title {
+    margin-top: -5px !important;
+}
+
+.modal-header .close {
+    margin-top: -17px !important;
+    margin-right: -10px !important;
+    padding: 0 !important;
+}
+
+.modal-body .card-body {
+    margin-top: -25px !important;
+    margin-bottom: 0 !important;
+}
+
+.modal-body .form {
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-body .form-control {
+    margin-left: 10px !important;
+    padding-bottom: 15px !important;
+}
+
+.modal-footer a {
+    margin-left: 5px;
+    padding: 0;
+    text-transform: none;
+    font-size: small;
+}

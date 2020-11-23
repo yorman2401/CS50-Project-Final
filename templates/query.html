@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block link %}
+    <link rel="stylesheet" href="static/css/list.css">
+{% endblock %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <div class="container-cards">
+        {% for hotel in queries %}
+            <div class="card mb-3 mr-auto ml-auto card-size">
+                <div class="row no-gutters">
+
+                    <div class="col-md-6">
+                        <img src="{{ hotel['photo']['images']['original']['url'] }}" class="card-img img-size" alt="{{ hotel['name'] }}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card-body body-size">
+
+                            <h3 class="card-title">{{ hotel['name'] }}</h3>
+
+                            <div class="dropdown-divider"></div>
+
+                            <div class="container-flex">
+                                <p class="card-text">
+
+                                    {% for i in range(hotel['hotel_class'] | int) %}
+                                        <i class="material-icons mt-3">star_rate</i>
+                                    {% endfor %}
+
+                                    <h4 class="ml-1 mr-4">Hotel</h4>
+
+                                    <h6 class="ml-1 reviews">{{ hotel['num_reviews'] }} reviews</h6>
+
+                                </p>
+                            </div>
+
+                            <div class="container-flex">
+                                <p class="card-text">
+                                    <i class="material-icons mt-3">place</i>
+                                    <h4>{{ hotel['location_string'] }}</h4>
+                                </p>
+                            </div>
+
+                            <div class="container-flex">
+
+                                <p class="card-text">
+                                    <i class="material-icons mt-3">monetization_on</i>
+                                    <h4 class="text-green">{{ hotel['price'] }}</h4>
+                                </p>
+
+                                {% if session.user_id %}
+                                    <form action="/wishlist" method="POST">
+                                        <input type="hidden" name="hotel_id" value="{{ hotel['location_id'] }}">
+                                        <input type="hidden" name="photo" value="{{ hotel['photo']['images']['original']['url'] }}">
+                                        <input type="hidden" name="name" value="{{ hotel['name'] }}">
+                                        <input type="hidden" name="stars" value="{{ hotel['hotel_class'] }}">
+                                        <input type="hidden" name="reviews" value="{{ hotel['num_reviews'] }}">
+                                        <input type="hidden" name="location" value="{{ hotel['location_string'] }}">
+                                        <input type="hidden" name="price" value="{{ hotel['price'] }}">
+                                        <button type="submit" class="btn btn-primary ml-5" name="wishlist" value="add">Add wishlist</button>
+                                    </form>
+                                {% else %}
+                                    <button class="btn btn-primary ml-5" data-toggle="modal" data-target="#loginModal">Add wishlist</button>
+                                {% endif %}
+
+                            </div>
+
+                            <p class="card-text"><small class="text-muted">1 rooms, {{ adults }} adults</small></p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
